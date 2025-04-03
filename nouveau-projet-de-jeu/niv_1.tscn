@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dxa1jserwlqkf"]
+
+[ext_resource type="PackedScene" uid="uid://h7yxykoxo8t" path="res://character_body_2d.tscn" id="1_6umxl"]
+[ext_resource type="PackedScene" uid="uid://cbflwhtmhhngs" path="res://new_piskel(2).tscn" id="3_spnsu"]
+
+[node name="niv 1" type="Node2D"]
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("1_6umxl")]
+
+[node name="NewPiskel(2)" parent="." instance=ExtResource("3_spnsu")]
+position = Vector2(68, 107)

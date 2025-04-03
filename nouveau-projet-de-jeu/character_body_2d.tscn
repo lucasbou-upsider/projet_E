@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://h7yxykoxo8t"]
+
+[ext_resource type="Texture2D" uid="uid://c4smeicgv4ltt" path="res://New Piskel (1).png" id="1_f50pn"]
+
+[sub_resource type="GDScript" id="GDScript_f50pn"]
+resource_name = "Player"
+script/source = "extends CharacterBody2D
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed(\"Saut\"):
+		position.y -= 50
+	if not is_on_floor():
+		velocity += get_gravity() * delta  
+	
+	move_and_slide()
+"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ij6vw"]
+radius = 87.023
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = SubResource("GDScript_f50pn")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(60.5, 28.25)
+scale = Vector2(21.125, 23.5625)
+texture = ExtResource("1_f50pn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(63, 34)
+shape = SubResource("CircleShape2D_ij6vw")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.5, 0.5)
